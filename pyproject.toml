@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fetchallegrooffers"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[dependencies]
+Flask = "^2.0.3"
+requests = "^2.27.1"
+json = "^2.11.3"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,1 @@
+This is a flask api for fetching data from Allegro API.
