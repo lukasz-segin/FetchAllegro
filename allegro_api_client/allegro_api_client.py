@@ -1,7 +1,9 @@
 """
 Client for communicating with the Allegro API
 """
-class AllegroApiClient(object):
+
+
+class AllegroApiClient:
     allegro_client_id: str
     allegro_client_secret: str
     allegro_token_url: str
