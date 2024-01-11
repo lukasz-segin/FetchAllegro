@@ -1,0 +1,31 @@
+fail_fast: true
+
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        args: ["line-length=110"]
+        name: black
+        entry: black
+        language: system
+        types: [python]
+        require_serial: true
+
+  - repo: local
+    hooks:
+      - id: autoflake
+        name: autoflake
+        entry: autoflake
+        language: system
+        types: [python]
+        require_serial: true
+
+  - repo: local
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--line-length=110"]
+        name: isort
+        entry: isort
+        language: system
+        types: [python]
+        require_serial: true
