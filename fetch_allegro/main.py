@@ -16,9 +16,9 @@ from allegro_api_service.allegro_api_service import AllegroApiService
 #     # Return the results as JSON.
 #     return jsonify(offers)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # app.run()
-    print("Fetching allegro offers")
+    print("Fetching allegro categories")
     service = AllegroApiService()
     token = service.get_access_token()
     categories = service.get_main_categories(token)
