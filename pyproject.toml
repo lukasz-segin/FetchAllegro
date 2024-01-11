@@ -12,6 +12,7 @@ json = "^2.11.3"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+pydantic-settings = "2.1.0"
 
 
 [build-system]
