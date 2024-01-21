@@ -1,7 +1,9 @@
 # from flask import Flask, request, jsonify
 import os
 
+from allegro_api_client.allegro_api_client import AllegroApiClient
 from allegro_api_service.allegro_api_service import AllegroApiService
+from fetch_allegro.settings import Settings
 
 # app = Flask(__name__)
 #
@@ -18,8 +20,18 @@ from allegro_api_service.allegro_api_service import AllegroApiService
 
 if __name__ == "__main__":
     # app.run()
+
+    # Initialize AllegroApiClient
+    allegro_client = AllegroApiClient(
+        allegro_client_id=Settings().ALLEGRO_CLIENT_ID,
+        allegro_client_secret=Settings().ALLEGRO_CLIENT_SECRET,
+        allegro_token_url=Settings().ALLEGRO_TOKEN_URL,
+    )
+
+    # Initialize AllegroApiService with the pre-initialized AllegroApiClient
+    allegro_service = AllegroApiService(api_client=allegro_client)
+
+    token = allegro_service.get_access_token()
     print("Fetching allegro categories")
-    service = AllegroApiService()
-    token = service.get_access_token()
-    categories = service.get_main_categories(token)
+    categories = allegro_service.get_main_categories(token=token)
     print(categories.json())
