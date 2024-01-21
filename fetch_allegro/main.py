@@ -35,3 +35,7 @@ if __name__ == "__main__":
     print("Fetching allegro categories")
     categories = allegro_service.get_main_categories(token=token)
     print(categories.json())
+
+    print("Fetching allegro products (first page)")
+    products = allegro_service.get_products(token=token, product_name="iphone")
+    print(products.json())

@@ -23,9 +23,9 @@ class AllegroApiService:
             return None
 
     @staticmethod
-    def _api_request(endpoint, headers):
+    def _api_request(endpoint, headers, params=None):
         try:
-            response = requests.get(endpoint, headers=headers)
+            response = requests.get(endpoint, headers=headers, params=params)
             response.raise_for_status()
             return response
         except requests.RequestException as err:
@@ -35,3 +35,8 @@ class AllegroApiService:
     def get_main_categories(self, token):
         headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.allegro.public.v1+json"}
         return self._api_request(Settings().ALLEGRO_SALE_CATEGORIES_URL, headers)
+
+    def get_products(self, token, product_name):
+        headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.allegro.public.v1+json"}
+        params = {"phrase": product_name}
+        return self._api_request(Settings().ALLEGRO_SALE_PRODUCTS_URL, headers=headers, params=params)

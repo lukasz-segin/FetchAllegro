@@ -9,3 +9,4 @@ class Settings(BaseSettings):
     ALLEGRO_CLIENT_SECRET: str
     ALLEGRO_TOKEN_URL: str
     ALLEGRO_SALE_CATEGORIES_URL: str
+    ALLEGRO_SALE_PRODUCTS_URL: str
